@@ -219,6 +219,7 @@ cd "$HOME" || exit
 rm -rf "$HOME"/src/fonts
 
 bootstrap_echo "Installing FiraCode-Font"
+sudo add-apt-repository universe
 sudo apt install fonts-firacode
 
 bootstrap_echo "Done!"
