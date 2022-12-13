@@ -31,5 +31,8 @@ When you invoke `bootstrap`, this is what it does in a nutshell:
 * Install [my Linux dotfiles and settings](https://github.com/marcusoftnet/linux-dotfiles)
 * Symlink dotfiles to `$HOME`
 * Install several fixed-width fonts.
-* Install Vundle and plugins for vim.
-* Set up Tmuxinator.
+* Installs other softeware
+  * Install Vundle and plugins for vim.
+  * Set up Tmuxinator.
+  * VS Code
+  * IntelliJ
