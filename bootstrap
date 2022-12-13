@@ -139,7 +139,7 @@ git clone "$BOOTSTRAP_REPO_URL" -b "$BOOTSTRAP_BRANCH" "$BOOTSTRAP_DIR"
 
 bootstrap_echo "Step 3: Installing oh-my-zsh..."
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 bootstrap_echo "Changing your shell to zsh ..."
 
