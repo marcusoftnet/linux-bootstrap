@@ -294,6 +294,14 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 
 bootstrap_echo "Done!"
 
+################################################################################
+# 12. Install Docker desktop
+################################################################################
+bootstrap_echo "Install Google Chrome"
+
+sudo apt-get install ./docker-desktop-4.15.amd64.deb
+bootstrap_echo "Done!"
+
 echo ""
 echo "******************************************************************"
 echo "**** Bootstrap script complete! Please restart your computer. ****"
