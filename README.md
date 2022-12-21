@@ -29,11 +29,12 @@ When you invoke `bootstrap`, this is what it does in a nutshell:
 * Install various software packages (see [`bootstrap`](./bootstrap) script for details)
 * Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 * Install [my Linux dotfiles and settings](https://github.com/marcusoftnet/linux-dotfiles)
-* Symlink dotfiles to `$HOME`
+* Symlink `dotfiles` to `$HOME`
 * Install several fixed-width fonts.
   * Including Fira-Code that is my personal favorite
-* Installs other softeware
+* Installs other software
   * Install Vundle and plugins for vim.
   * VS Code
   * IntelliJ
   * Docker
+  * Microsoft Teams

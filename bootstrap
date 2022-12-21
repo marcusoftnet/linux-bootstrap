@@ -52,7 +52,7 @@ fi
 
 
 ################################################################################
-# 1. Update the system.
+# Update the system.
 ################################################################################
 
 bootstrap_echo "Step 1: Updating system packages ..."
@@ -69,7 +69,7 @@ sudo aptitude -y upgrade
 
 
 ################################################################################
-# 2. Install basic tools
+# Install basic tools
 ################################################################################
 
 bootstrap_echo "Step 2: Installing basic tools..."
@@ -134,7 +134,7 @@ git clone "$BOOTSTRAP_REPO_URL" -b "$BOOTSTRAP_BRANCH" "$BOOTSTRAP_DIR"
 
 
 ################################################################################
-# 3. Install oh-my-zsh
+# Install oh-my-zsh
 ################################################################################
 
 bootstrap_echo "Step 3: Installing oh-my-zsh..."
@@ -147,7 +147,7 @@ chsh -s "$(which zsh)"
 
 
 ################################################################################
-# 4. Setup dotfiles
+# Setup dotfiles
 ################################################################################
 
 bootstrap_echo "Step 4: Installing dotfiles..."
@@ -167,7 +167,7 @@ source "$DOTFILES_DIR"/install.sh
 
 
 ################################################################################
-# 5. Install ~/bin utilities
+# Install ~/bin utilities
 ################################################################################
 
 bootstrap_echo "Step 5: Installing bin utilities..."
@@ -180,24 +180,8 @@ cp -R "$BOOTSTRAP_DIR"/bin/* "$HOME"/bin/
 
 
 ################################################################################
-# 6. Install Powerline-patched fonts
+# Install fonts
 ################################################################################
-
-bootstrap_echo "Step 6: Installing fixed-width fonts patched for use with Powerline symbols..."
-
-if [ -d "$HOME"/src/fonts ]; then
-  rm -rf "$HOME"/src/fonts
-fi
-
-git clone https://github.com/powerline/fonts.git "$HOME"/src/fonts
-
-cd "$HOME"/src/fonts || exit
-
-./install.sh
-
-cd "$HOME" || exit
-
-rm -rf "$HOME"/src/fonts
 
 bootstrap_echo "Installing FiraCode-Font"
 sudo add-apt-repository universe
@@ -207,10 +191,10 @@ bootstrap_echo "Done!"
 
 
 ################################################################################
-# 7. Install Vundle and Vim plugins
+# Install Vundle and Vim plugins
 ################################################################################
 
-bootstrap_echo "Step 7: Installing Vundle and Vim plugins..."
+bootstrap_echo "Installing Vundle and Vim plugins..."
 
 if [ -d "$HOME"/.vim/bundle ]; then
   rm -rf "$HOME"/.vim/bundle
@@ -227,7 +211,7 @@ rm -rf "$HOME"/.vim/colors
 bootstrap_echo "Done!"
 
 ################################################################################
-# 11. Setup Visual Studio Code
+# Setup Visual Studio Code
 ################################################################################
 bootstrap_echo "Install VS Code"
 
@@ -243,7 +227,7 @@ sudo apt install code # or code-insiders
 bootstrap_echo "Done!"
 
 ################################################################################
-# 12. Setup IntelliJ
+# Setup IntelliJ
 ################################################################################
 bootstrap_echo "Install IntelliJ"
 
@@ -252,7 +236,7 @@ sudo snap install intellij-idea-community --classic
 bootstrap_echo "Done!"
 
 ################################################################################
-# 12. Install Google Chrome
+# Install Google Chrome
 ################################################################################
 bootstrap_echo "Install Google Chrome"
 
@@ -262,11 +246,23 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 bootstrap_echo "Done!"
 
 ################################################################################
-# 12. Install Docker
+# Install Docker
 ################################################################################
 bootstrap_echo "Install Docker"
 
 sudo snap install docker
+bootstrap_echo "Done!"
+
+################################################################################
+# Install Teams
+################################################################################
+bootstrap_echo "Install Microsoft Teams"
+
+curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list'
+sudo apt update
+sudo apt install teams
+
 bootstrap_echo "Done!"
 
 echo ""
