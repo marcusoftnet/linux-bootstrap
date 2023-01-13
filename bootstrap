@@ -80,6 +80,9 @@ sudo aptitude install -y build-essential
 bootstrap_echo "Installing curl ..."
 sudo aptitude install -y curl
 
+bootstrap_echo "Installing jq ..."
+sudo apt install -y jq
+
 bootstrap_echo "Installing python software properties..."
 sudo aptitude install -y python-software-properties
 
@@ -131,90 +134,59 @@ nvm install --lts
 
 bootstrap_echo "Cloning linux-bootstrap repo..."
 git clone "$BOOTSTRAP_REPO_URL" -b "$BOOTSTRAP_BRANCH" "$BOOTSTRAP_DIR"
+bootstrap_echo "Done!"
 
 
-################################################################################
-# Install oh-my-zsh
-################################################################################
-
-bootstrap_echo "Step 3: Installing oh-my-zsh..."
-
+bootstrap_echo "Installing oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
 bootstrap_echo "Changing your shell to zsh ..."
-
 chsh -s "$(which zsh)"
+bootstrap_echo "Done!"
 
 
-################################################################################
-# Setup dotfiles
-################################################################################
-
-bootstrap_echo "Step 4: Installing dotfiles..."
+bootstrap_echo "Installing dotfiles..."
 if [[ -d $DOTFILES_DIR ]]; then
   bootstrap_echo "Backing up old dotfiles to $HOME/old_dotfiles_backup..."
   rm -rf "$OLD_DOTFILES_BACKUP"
   cp -R "$DOTFILES_DIR" "$OLD_DOTFILES_BACKUP"
   rm -rf "$DOTFILES_DIR"
 fi
+bootstrap_echo "Done!"
 
 bootstrap_echo "Cloning your dotfiles repo to ${DOTFILES_DIR} ..."
-
 git clone "$DOTFILES_REPO_URL" -b "$DOTFILES_BRANCH" "$DOTFILES_DIR"
-
 # shellcheck source=/dev/null
 source "$DOTFILES_DIR"/install.sh
+bootstrap_echo "Done!"
 
 
-################################################################################
-# Install ~/bin utilities
-################################################################################
-
-bootstrap_echo "Step 5: Installing bin utilities..."
-
+bootstrap_echo "Installing bin utilities..."
 if [ ! -d "$HOME"/bin ]; then
   mkdir "$HOME"/bin
 fi
-
 cp -R "$BOOTSTRAP_DIR"/bin/* "$HOME"/bin/
+bootstrap_echo "Done!"
 
-
-################################################################################
-# Install fonts
-################################################################################
 
 bootstrap_echo "Installing FiraCode-Font"
 sudo add-apt-repository universe
 sudo apt install fonts-firacode
-
 bootstrap_echo "Done!"
 
 
-################################################################################
-# Install Vundle and Vim plugins
-################################################################################
 
 bootstrap_echo "Installing Vundle and Vim plugins..."
-
 if [ -d "$HOME"/.vim/bundle ]; then
   rm -rf "$HOME"/.vim/bundle
 fi
-
 git clone https://github.com/gmarik/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim"
-
 cp -R "$DOTFILES_DIR"/vim/colors "$HOME"/.vim # So Vim won't complain about solarized not being found.
-
 vim +PluginInstall +qall
-
 rm -rf "$HOME"/.vim/colors
-
 bootstrap_echo "Done!"
 
-################################################################################
-# Setup Visual Studio Code
-################################################################################
-bootstrap_echo "Install VS Code"
 
+bootstrap_echo "Install VS Code"
 sudo apt-get install wget gpg
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
@@ -223,47 +195,38 @@ rm -f packages.microsoft.gpg
 sudo apt install apt-transport-https
 sudo apt update
 sudo apt install code # or code-insiders
-
 bootstrap_echo "Done!"
 
-################################################################################
-# Setup IntelliJ
-################################################################################
+
 bootstrap_echo "Install IntelliJ"
-
 sudo snap install intellij-idea-community --classic
-
 bootstrap_echo "Done!"
 
-################################################################################
-# Install Google Chrome
-################################################################################
-bootstrap_echo "Install Google Chrome"
 
+bootstrap_echo "Install Google Chrome"
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
-
 bootstrap_echo "Done!"
 
-################################################################################
-# Install Docker
-################################################################################
-bootstrap_echo "Install Docker"
 
+bootstrap_echo "Install Docker"
 sudo snap install docker
 bootstrap_echo "Done!"
 
-################################################################################
-# Install Teams
-################################################################################
-bootstrap_echo "Install Microsoft Teams"
 
+bootstrap_echo "Install Microsoft Teams"
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list'
 sudo apt update
 sudo apt install teams
-
 bootstrap_echo "Done!"
+
+
+bootstrap_echo "Install Filezilla"
+sudo apt install software-properties-common apt-transport-https -y
+sudo apt install filezilla
+bootstrap_echo "Done!"
+
 
 echo ""
 echo "******************************************************************"
