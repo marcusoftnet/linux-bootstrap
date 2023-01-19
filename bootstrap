@@ -227,6 +227,10 @@ sudo apt install software-properties-common apt-transport-https -y
 sudo apt install filezilla
 bootstrap_echo "Done!"
 
+bootstrap_echo "Install Spotify"
+sudo snap install spotify
+bootstrap_echo "Done!"
+
 
 echo ""
 echo "******************************************************************"
