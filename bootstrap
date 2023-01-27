@@ -222,14 +222,6 @@ sudo snap install docker
 bootstrap_echo "Done!"
 
 
-bootstrap_echo "Install Microsoft Teams"
-curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list'
-sudo apt update
-sudo apt install teams
-bootstrap_echo "Done!"
-
-
 bootstrap_echo "Install Filezilla"
 sudo apt install software-properties-common apt-transport-https -y
 sudo apt install filezilla
