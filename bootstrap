@@ -231,10 +231,6 @@ bootstrap_echo "Install Spotify"
 sudo snap install spotify
 bootstrap_echo "Done!"
 
-bootstrap_echo "Install Avast"
-sudo apt install avast
-bootstrap_echo "Done!"
-
 
 echo ""
 echo "******************************************************************"
