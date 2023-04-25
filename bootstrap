@@ -139,16 +139,14 @@ bootstrap_echo "Cloning linux-bootstrap repo..."
 git clone "$BOOTSTRAP_REPO_URL" -b "$BOOTSTRAP_BRANCH" "$BOOTSTRAP_DIR"
 bootstrap_echo "Done!"
 
-
 bootstrap_echo "Installing oh-my-zsh..."
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-bootstrap_echo "Done!"
-
-
-bootstrap_echo "Installing power10k theme."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 bootstrap_echo "Changing your shell to zsh ..."
 chsh -s "$(which zsh)"
+bootstrap_echo "Done!"
+
+bootstrap_echo "Installing power10k theme."
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 bootstrap_echo "Done!"
 
 
