@@ -135,6 +135,9 @@ export NVM_DIR="$HOME"/.nvm && (
 
 nvm install --lts
 
+bootstrap_echo "Installing npm"
+sudo apt-get install npm
+
 bootstrap_echo "Cloning linux-bootstrap repo..."
 git clone "$BOOTSTRAP_REPO_URL" -b "$BOOTSTRAP_BRANCH" "$BOOTSTRAP_DIR"
 bootstrap_echo "Done!"
