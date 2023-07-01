@@ -149,6 +149,22 @@ bootstrap_echo "Installing power10k theme."
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 bootstrap_echo "Done!"
 
+bootstrap_echo "Installing vtop"
+sudo npm install -g vtop
+bootstrap_echo "Done!"
+
+bootstrap_echo "Installing tldr"
+npm install -g tldr
+bootstrap_echo "Done!"
+
+bootstrap_echo "Installing neofetch"
+sudo apt install neofetch
+bootstrap_echo "Done!"
+
+bootstrap_echo "Installing cmatrix"
+sudo apt install cmatrix
+bootstrap_echo "Done!"
+
 
 bootstrap_echo "Installing dotfiles..."
 if [[ -d $DOTFILES_DIR ]]; then
