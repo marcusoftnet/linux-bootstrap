@@ -231,11 +231,12 @@ bootstrap_echo "Done!"
 bootstrap_echo "Install Google Chrome"
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
+rm google-chrome-stable_current_amd64.deb
 bootstrap_echo "Done!"
 
 
 bootstrap_echo "Install Docker"
-sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" --unattended
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" --unattended
 
 bootstrap_echo "Done!"
 
