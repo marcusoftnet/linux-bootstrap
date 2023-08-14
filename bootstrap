@@ -236,8 +236,7 @@ bootstrap_echo "Done!"
 
 
 bootstrap_echo "Install Docker"
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" --unattended
-
+sh -c "$(curl -fsSL https://get.docker.com)" "" --unattended
 bootstrap_echo "Done!"
 
 
