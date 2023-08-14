@@ -235,7 +235,8 @@ bootstrap_echo "Done!"
 
 
 bootstrap_echo "Install Docker"
-sudo snap install docker
+sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" --unattended
+
 bootstrap_echo "Done!"
 
 
