@@ -235,11 +235,6 @@ rm google-chrome-stable_current_amd64.deb
 bootstrap_echo "Done!"
 
 
-bootstrap_echo "Install Docker"
-sudo sh -c "$(curl -fsSL https://get.docker.com)" --unattended
-bootstrap_echo "Done!"
-
-
 bootstrap_echo "Install Filezilla"
 sudo apt install software-properties-common apt-transport-https -y
 sudo apt install filezilla
