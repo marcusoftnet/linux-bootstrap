@@ -169,6 +169,12 @@ sudo apt install cmatrix
 bootstrap_echo "Done!"
 
 
+bootstrap_echo "Installing youtube-dl"
+sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+sudo chmod a+rx /usr/local/bin/youtube-dl
+bootstrap_echo "Done!"
+
+
 bootstrap_echo "Installing dotfiles..."
 if [[ -d $DOTFILES_DIR ]]; then
   bootstrap_echo "Backing up old dotfiles to $HOME/old_dotfiles_backup..."
