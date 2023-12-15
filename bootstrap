@@ -228,12 +228,6 @@ sudo apt update
 sudo apt install code # or code-insiders
 bootstrap_echo "Done!"
 
-
-bootstrap_echo "Install IntelliJ"
-sudo snap install intellij-idea-community --classic
-bootstrap_echo "Done!"
-
-
 bootstrap_echo "Install Google Chrome"
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
