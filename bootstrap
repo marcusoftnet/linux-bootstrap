@@ -168,10 +168,13 @@ bootstrap_echo "Installing cmatrix"
 sudo apt install cmatrix
 bootstrap_echo "Done!"
 
-
 bootstrap_echo "Installing youtube-dl"
 sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
+bootstrap_echo "Done!"
+
+bootstrap_echo "Installing dotnet"
+sudo apt-get install -y dotnet-sdk-8.0
 bootstrap_echo "Done!"
 
 
@@ -244,6 +247,9 @@ bootstrap_echo "Install Spotify"
 sudo snap install spotify
 bootstrap_echo "Done!"
 
+bootstrap_echo "Cleaning up"
+sudo apt autoremove -y
+bootstrap_echo "Done!"
 
 echo ""
 echo "******************************************************************"
