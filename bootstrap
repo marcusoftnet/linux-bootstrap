@@ -252,6 +252,10 @@ bootstrap_echo "Install Spotify"
 sudo snap install spotify
 bootstrap_echo "Done!"
 
+bootstrap_echo "Install Postman"
+snap install postman
+bootstrap_echo "Done!"
+
 bootstrap_echo "Cleaning up"
 sudo apt autoremove -y
 bootstrap_echo "Done!"
