@@ -120,6 +120,9 @@ sudo aptitude install -y xclip
 bootstrap_echo "Installing bat..."
 sudo apt install bat
 
+bootstrap_echo "Installing protobuf-compiler..."
+apt install -y protobuf-compiler
+
 if grep -qiE 'precise|saucy|trusty|utopic|vivid|wheezy' /etc/os-release; then
   bootstrap_echo "Installing gnome-tweak-tool..."
   sudo aptitude install -y gnome-tweak-tool
